@@ -44,23 +44,6 @@ int main( int argc, char* argv[] )
   //Heap
   TVec miArbolHeap;
 
-  // Llenar arbol Heap y calcular el tiempo empleado
-  std::clock_t inicioLecturaHP = std::clock( );
-  bool lecturaHP = LeerArbolh(miArbolHeap, argv[ 1 ]);
-  std::clock_t finLecturaHP = std::clock( );
-  double tiempoLecturaHP = ( finLecturaHP - inicioLecturaHP ) / double( CLOCKS_PER_SEC );
-  if( lecturaHP )
-    std::cout
-      << "Tiempo de llenado arbol Heap = "
-      << tiempoLecturaHP << "segs."
-      << std::endl;
-  else
-    std::cout
-      << "Error al leer \"" << argv[ 1 ]
-      << "\" para llenar el arbol Heap."
-      << std::endl;
-
-
   // Llenar arbol rojinegro y calcular el tiempo empleado
   std::clock_t inicioLecturaRN = std::clock( );
   bool lecturaRN = LeerArbol( miArbolRN, argv[ 1 ] );
@@ -94,6 +77,22 @@ int main( int argc, char* argv[] )
      << "Error al leer \"" << argv[ 1 ]
      << "\" para llenar el arbol AVL."
      << std::endl;
+
+  // Llenar arbol Heap y calcular el tiempo empleado
+  std::clock_t inicioLecturaHP = std::clock( );
+  bool lecturaHP = LeerArbolh(miArbolHeap, argv[ 1 ]);
+  std::clock_t finLecturaHP = std::clock( );
+  double tiempoLecturaHP = ( finLecturaHP - inicioLecturaHP ) / double( CLOCKS_PER_SEC );
+  if( lecturaHP )
+    std::cout
+      << "Tiempo de llenado arbol Heap = "
+      << tiempoLecturaHP << "segs."
+      << std::endl;
+  else
+    std::cout
+      << "Error al leer \"" << argv[ 1 ]
+      << "\" para llenar el arbol Heap."
+      << std::endl;   
 
 
   // Obtener el recorrido en inorden del arbol AVL
